@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
-import Question from "./question";
 
-export default function Customize({route, navigation}){
+export default function Customize({route, navigation}: any){
     const {modus} = route.params;
     const [questionCount, setQuestionCount] = useState(10);
     const handleSend = () => {        
@@ -12,8 +11,8 @@ export default function Customize({route, navigation}){
         <View style={{ flex: 1, justifyContent: "flex-start", backgroundColor: "#EEABC4", padding: 8 }}>
             <TextInput
                 style={styles.input}
-                onChangeText={setQuestionCount}
-                value={questionCount}
+                onChangeText={(text :any) => setQuestionCount(text)}
+                value={questionCount.toString()}
                 keyboardType = "numeric"
             />
             <TouchableOpacity style={styles.btn} onPress={handleSend}>

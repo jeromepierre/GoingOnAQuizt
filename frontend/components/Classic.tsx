@@ -3,16 +3,27 @@ import { View, Text } from 'react-native';
 import Question from "./question";
 import axios from "axios";
 
-export default function ClassicModus({route, navigation}) {
+export default function ClassicModus({route, navigation}: any) {
   const [isClicked, setIsClicked] = useState(false);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
-  const [questions, setQuestions] = useState(null);
+  const [questions, setQuestions] = useState([]);
   const [error, setError] = useState(false);
   useEffect(() => {
-      axios.post('localhost:3000/questions', {numberOfQuestions: route.params.questionCount}).then((res) => {setQuestions(res)}).catch((err) => {setError(true)});
-  })
-
+      async function fetchQuestion(){
+        const result = await axios.post('http://localhost:3000/questions', {numberOfQuestions: route.params.questionCount});
+        console.log(result);
+        setQuestions(result.data);
+      }
+      fetchQuestion();
+      // fetch('https://localhost:3000/questions', {
+      //   method: 'POST',
+      //   body: JSON.stringify({numberOfQuestions: route.params.questionCount})
+      // }).then(function(response) {
+      //   return response.json();
+      // }).then(function(data) {
+      //   setQuestions(data);
+      }, []);
     const nextRound = () => {
       if(questionIndex < questions.length - 1)
         setQuestionIndex(questionIndex + 1);

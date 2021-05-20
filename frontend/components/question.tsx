@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import AnswerButton from "./answerButton";
 
-export default function Question({questions, nextRound}){
+export default function Question({questions, nextRound}:any){
     const [isPressed, setIsPressed] = useState(false);
     const handlePress = () => {
         nextRound();
         setIsPressed(false);
     }
+    useEffect(() => {console.log(questions)});
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>{questions.question}</Text>
+            {/* <Text style={styles.text}>{questions.question}</Text>
             <View style={styles.answerContainer}>
                 {questions.answers.map((option, index) => {
                     return(
@@ -21,7 +21,7 @@ export default function Question({questions, nextRound}){
                     {isPressed ? <TouchableOpacity style={styles.btn} onPress={() => handlePress()}>
                             <Text style={styles.btnText}>Weiter</Text>
                          </TouchableOpacity> : undefined}                
-            </View>
+            </View> */}
         </View>
     );
 }

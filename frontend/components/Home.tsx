@@ -5,7 +5,7 @@ function HomeScreen({ navigation }: any) {
     return (
       <View style={{ flex: 1, alignItems: 'flex-start', justifyContent: 'space-around', backgroundColor: "#EEABC4" }}>
         <Text style={styles.title}>Going on a quizt</Text>
-        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Customize", {navigation, modus: "Classic"})}>
+        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Customize", { modus: "Classic"})}>
             <Text style={styles.btnText}>Klassischer Modus</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Classic")}>

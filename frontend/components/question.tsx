@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import {TAnswer} from "../types/Question";
 
 export default function Question({questions, nextRound}:any){
     const [isPressed, setIsPressed] = useState(false);
@@ -7,23 +8,31 @@ export default function Question({questions, nextRound}:any){
         nextRound();
         setIsPressed(false);
     }
-    useEffect(() => {console.log(questions)});
-    return (
-        <View style={styles.container}>
-            {/* <Text style={styles.text}>{questions.question}</Text>
-            <View style={styles.answerContainer}>
-                {questions.answers.map((option, index) => {
-                    return(
-                         <TouchableOpacity style={[styles.btn, {backgroundColor: isPressed ? option.isCorrect ? "#549F93" : "#f93e58" : "#4D9DE0"}]} onPress={() => setIsPressed(true)} key={index}>
-                            <Text style={styles.btnText}>{option.answer}</Text>
-                         </TouchableOpacity>                         
-                    )})}
+    useEffect(() => {console.log("given questions: ", questions)}, [questions]);
+
+    if(questions) {
+        return (
+            <View style={styles.container}>
+                <Text style={styles.text}>{questions.question}</Text>
+                <View style={styles.answerContainer}>
+                    {questions.answers.map((option: TAnswer, index: number) => {
+                        return (
+                            <TouchableOpacity
+                                style={[styles.btn, {backgroundColor: isPressed ? option.isCorrect ? "#549F93" : "#f93e58" : "#4D9DE0"}]}
+                                onPress={() => setIsPressed(true)} key={index}>
+                                <Text style={styles.btnText}>{option.answer}</Text>
+                            </TouchableOpacity>
+                        )
+                    })}
                     {isPressed ? <TouchableOpacity style={styles.btn} onPress={() => handlePress()}>
-                            <Text style={styles.btnText}>Weiter</Text>
-                         </TouchableOpacity> : undefined}                
-            </View> */}
-        </View>
-    );
+                        <Text style={styles.btnText}>Weiter</Text>
+                    </TouchableOpacity> : undefined}
+                </View>
+            </View>
+        );
+    } else {
+        return <View style={styles.container}><Text>Bin am laden...</Text></View>
+    }
 }
 
 

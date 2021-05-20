@@ -2,28 +2,34 @@ import React, {useState, useEffect} from 'react';
 import { View, Text } from 'react-native';
 import Question from "./question";
 import axios from "axios";
+import { TQuestion } from "../types/Question";
+import {postQuestions} from "./ducks";
 
 export default function ClassicModus({route, navigation}: any) {
   const [isClicked, setIsClicked] = useState(false);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
-  const [questions, setQuestions] = useState([]);
+  const [questions, setQuestions] = useState<Array<TQuestion>>([]);
   const [error, setError] = useState(false);
+
   useEffect(() => {
-      async function fetchQuestion(){
-        const result = await axios.post('http://localhost:3000/questions', {numberOfQuestions: route.params.questionCount});
-        console.log(result);
-        setQuestions(result.data);
-      }
-      fetchQuestion();
-      // fetch('https://localhost:3000/questions', {
-      //   method: 'POST',
-      //   body: JSON.stringify({numberOfQuestions: route.params.questionCount})
-      // }).then(function(response) {
-      //   return response.json();
-      // }).then(function(data) {
-      //   setQuestions(data);
-      }, []);
+      // fetchQuestion();
+      postQuestions(route.params.questionCount).then((res:any) => {
+          setQuestions(res);
+      })
+  }, []);
+
+  useEffect(() => {
+      console.log("QuestionsChanged : ", questions);
+  }, [questions]);
+
+  async function fetchQuestion(){
+    axios.post('http://192.168.0.220:3000/questions', {numberOfQuestions: route.params.questionCount}).then((response: any) => {
+        console.log("resi: ", response.data);
+        setQuestions(response.data);
+    });
+  }
+
     const nextRound = () => {
       if(questionIndex < questions.length - 1)
         setQuestionIndex(questionIndex + 1);

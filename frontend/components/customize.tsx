@@ -1,14 +1,22 @@
 import React, {useState} from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
-import MultiSelect from 'react-native-multiple-select';
+// import MultiSelect from 'react-native-multiple-select';
 
 export default function Customize({route, navigation}: any){
     const {modus} = route.params;
     const [questionCount, setQuestionCount] = useState(10);
-    const [difficulties, setDifficulties] = useState(["easy", "medium", "hard"])
+    const [difficulties, setDifficulties] = useState([]);
+
+    const choseableDifficulties = [
+        {label: "easy", value: "easy"},
+        {label: "medium", value: "medium"},
+        {label: "hard", value: "hard"},
+    ]
+
     const handleSend = () => {        
         navigation.navigate(modus, {questionCount: questionCount});
     }
+
     return(
         <View style={{ flex: 1, justifyContent: "flex-start", backgroundColor: "#EEABC4", padding: 8 }}>
             <View style={styles.inputContainer}>
@@ -20,11 +28,11 @@ export default function Customize({route, navigation}: any){
                     keyboardType = "numeric"
                 />    
             </View>
-            {modus == "custom" ? 
+            {modus === "Custom" ?
                 <View style={styles.inputContainer}>
-                   
+
                 </View>
-                : undefined}
+                : null}
             <TouchableOpacity style={styles.btn} onPress={handleSend}>
                 <Text style={styles.btnText}>Send</Text>
             </TouchableOpacity> 

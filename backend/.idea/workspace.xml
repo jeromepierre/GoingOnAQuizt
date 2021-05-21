@@ -2,19 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab457d93-ee93-4550-801c-d1d8d7d9354c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../frontend/components/ducks.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/types/Question.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/questions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/components/Classic.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/Classic.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/JsonResponse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/shuffle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/gameSession.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/gameSession.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/components/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/components/customize.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/customize.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/components/ducks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/ducks.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/components/question.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/question.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />

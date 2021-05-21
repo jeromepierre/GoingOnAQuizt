@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+const createJsonResponse = require("../utils/JsonResponse");
 
 async function createQuestions(round, categories) {
   let questions = [];
@@ -20,21 +21,7 @@ async function createQuestions(round, categories) {
     }
   }
   console.log(questions);
-  let frontEndQuestions = [];
-  questions.map((question) => {
-    let questionJson = {
-      question: question[0]["question"],
-      difficulty: question[0]["difficulty"],
-      answers: [],
-    };
-    let incorrectAnswers = question[0]["incorrect_answers"];
-    let correctAnswers = question[0]["correct_answer"];
-    incorrectAnswers.map((answer) => {
-      questionJson.answers.push({ answer: answer, isCorrect: false });
-    });
-    questionJson.answers.push({ answer: correctAnswers, isCorrect: true });
-    frontEndQuestions.push(questionJson);
-  });
+  let frontEndQuestions = createJsonResponse.createJsonResponse(questions);
   return frontEndQuestions;
 }
 

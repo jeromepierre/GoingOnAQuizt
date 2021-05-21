@@ -8,7 +8,7 @@ function HomeScreen({ navigation }: any) {
         <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Customize", { modus: "Classic"})}>
             <Text style={styles.btnText}>Klassischer Modus</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Classic")}>
+        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Customize", { modus: "Custom"})}>
             <Text style={styles.btnText}>Custom Modus</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Classic")}>

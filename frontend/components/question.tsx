@@ -8,9 +8,9 @@ export default function Question({questions, nextRound, points, handleQuestions}
         nextRound();
         setIsPressed(false);
     }
-   const handleAnswerPress = (difficulty: string) => {
+   const handleAnswerPress = (difficulty: string, isCorrect: boolean) => {
         setIsPressed(true);
-        handleQuestions(difficulty);
+        if(isCorrect) handleQuestions(difficulty);
    }
 
     if(questions) {
@@ -22,7 +22,7 @@ export default function Question({questions, nextRound, points, handleQuestions}
                         return (
                             <TouchableOpacity
                                 style={[styles.btn, {backgroundColor: isPressed ? option.isCorrect ? "#549F93" : "#f93e58" : "#4D9DE0"}]}
-                                onPress={() => handleAnswerPress(questions.difficulty)} key={index}>
+                                onPress={() => handleAnswerPress(questions.difficulty, option.isCorrect)} key={index}>
                                 <Text style={styles.btnText}>{option.answer}</Text>
                             </TouchableOpacity>
                         )

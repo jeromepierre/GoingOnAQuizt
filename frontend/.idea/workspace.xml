@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f793874a-ef43-4ac3-bfe5-c7c3f87b2333" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/ducks.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/Question.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/routes/questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/routes/questions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Classic.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Classic.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/utils/JsonResponse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/utils/shuffle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/models/gameSession.js" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/models/gameSession.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/customize.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/customize.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ducks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/ducks.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/question.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/question.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +71,8 @@
       <option name="presentableId" value="Default" />
       <updated>1621544069747</updated>
       <workItem from="1621544070885" duration="5889000" />
+      <workItem from="1621627233448" duration="138000" />
+      <workItem from="1621627381622" duration="3126000" />
     </task>
     <servers />
   </component>
@@ -84,6 +89,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -91,19 +97,16 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/components/Classic.tsx</url>
           <line>84</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/components/Classic.tsx</url>
           <line>83</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/components/question.tsx</url>
           <line>5</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

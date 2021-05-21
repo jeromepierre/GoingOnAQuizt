@@ -5,5 +5,5 @@ export type TQuestion = {
 
 export type TAnswer = {
     answer: string,
-    isCorrect: boolean
+    isCorrect: boolean,
 }

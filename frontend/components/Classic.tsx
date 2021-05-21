@@ -11,6 +11,23 @@ export default function ClassicModus({route, navigation}: any) {
   const [isFinished, setIsFinished] = useState(false);
   const [questions, setQuestions] = useState<Array<TQuestion>>([]);
   const [error, setError] = useState(false);
+  const [points, setPoints] = useState(0);
+
+  const handleQuestions = (difficulty: string) => {
+    switch(difficulty){
+        case "easy":
+            setPoints(points + 1);
+            break;
+        case "medium": 
+            setPoints(points + 2);
+            break;
+        case "hard": 
+            setPoints(points + 3);
+            break;
+        default: 
+            break;
+    };
+}
 
   useEffect(() => {
       // fetchQuestion();
@@ -19,9 +36,6 @@ export default function ClassicModus({route, navigation}: any) {
       })
   }, []);
 
-  useEffect(() => {
-      console.log("QuestionsChanged : ", questions);
-  }, [questions]);
 
   async function fetchQuestion(){
     axios.post('http://192.168.0.220:3000/questions', {numberOfQuestions: route.params.questionCount}).then((response: any) => {
@@ -36,53 +50,10 @@ export default function ClassicModus({route, navigation}: any) {
       else
         setIsFinished(true);
   }
-    // const questions = [
-    //   {
-    //     question: "Das ist die erste Frage",
-    //     answers: [
-    //       {
-    //         answer: "nummmer 1 jakdsjfkljasdfj asjd ajsdklf aksjfklja dsfkjalksfdja",
-    //         isCorrect: true,
-    //       },
-    //        {
-    //         answer: "nummmer 2",
-    //         isCorrect: false,
-    //       },
-    //        {
-    //         answer: "nummmer 3asdfasdfasfasdfasdfsafsdafasdf",
-    //         isCorrect: false,
-    //       },
-    //        {
-    //         answer: "nummmer 4",
-    //         isCorrect: false,
-    //       }
-    //     ]
-    //   },
-    //   {
-    //     question: "Das ist die zweite Frage",
-    //     answers: [
-    //       {
-    //         answer: "nummmer 1",
-    //         isCorrect: true,
-    //       },
-    //        {
-    //         answer: "nummmer 2",
-    //         isCorrect: false,
-    //       },
-    //        {
-    //         answer: "nummmer 3",
-    //         isCorrect: false,
-    //       },
-    //        {
-    //         answer: "nummmer 4",
-    //         isCorrect: false,
-    //       }
-    //     ]
-    //   }
-    // ]
+
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: "#EEABC4" }}>
-        {error ? <Text>Errorrrrr!</Text> : !isFinished ? <Question questions={questions[questionIndex]} nextRound={nextRound}></Question> : <Text>Feeertig</Text>}
+        {error ? <Text>Errorrrrr!</Text> : !isFinished ? <Question questions={questions[questionIndex]} nextRound={nextRound} handleQuestions={handleQuestions} points={points}></Question> : <Text>Total Punktzahl: {points}</Text>}
       </View>
     );
   }

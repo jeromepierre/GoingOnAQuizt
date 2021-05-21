@@ -1,20 +1,30 @@
 import React, {useState} from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import MultiSelect from 'react-native-multiple-select';
 
 export default function Customize({route, navigation}: any){
     const {modus} = route.params;
     const [questionCount, setQuestionCount] = useState(10);
+    const [difficulties, setDifficulties] = useState(["easy", "medium", "hard"])
     const handleSend = () => {        
         navigation.navigate(modus, {questionCount: questionCount});
     }
     return(
         <View style={{ flex: 1, justifyContent: "flex-start", backgroundColor: "#EEABC4", padding: 8 }}>
-            <TextInput
-                style={styles.input}
-                onChangeText={(text :any) => setQuestionCount(text)}
-                value={questionCount.toString()}
-                keyboardType = "numeric"
-            />
+            <View style={styles.inputContainer}>
+                <Text>Anzahl Fragen: </Text>
+                <TextInput                
+                    style={styles.input}
+                    onChangeText={(text :any) => setQuestionCount(text)}
+                    value={questionCount.toString()}
+                    keyboardType = "numeric"
+                />    
+            </View>
+            {modus == "custom" ? 
+                <View style={styles.inputContainer}>
+                   
+                </View>
+                : undefined}
             <TouchableOpacity style={styles.btn} onPress={handleSend}>
                 <Text style={styles.btnText}>Send</Text>
             </TouchableOpacity> 
@@ -23,11 +33,18 @@ export default function Customize({route, navigation}: any){
 }
 
 const styles = StyleSheet.create({
-  input: {
+    inputContainer:{
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: 'flex-start',
+        alignItems: "center",
+    },
+    input: {
     height: 40,
     margin: 12,
     borderWidth: 1,
-    backgroundColor: "#E15A97"
+    backgroundColor: "#E15A97",
+    width: 100
   },
   container: {
         padding: 10

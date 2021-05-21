@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import {TAnswer} from "../types/Question";
 
-export default function Question({questions, nextRound}:any){
+export default function Question({questions, nextRound, points, handleQuestions}:any){
     const [isPressed, setIsPressed] = useState(false);
     const handlePress = () => {
         nextRound();
         setIsPressed(false);
     }
-    useEffect(() => {console.log("given questions: ", questions)}, [questions]);
+   const handleAnswerPress = (difficulty: string) => {
+        setIsPressed(true);
+        handleQuestions(difficulty);
+   }
 
     if(questions) {
         return (
@@ -19,7 +22,7 @@ export default function Question({questions, nextRound}:any){
                         return (
                             <TouchableOpacity
                                 style={[styles.btn, {backgroundColor: isPressed ? option.isCorrect ? "#549F93" : "#f93e58" : "#4D9DE0"}]}
-                                onPress={() => setIsPressed(true)} key={index}>
+                                onPress={() => handleAnswerPress(questions.difficulty)} key={index}>
                                 <Text style={styles.btnText}>{option.answer}</Text>
                             </TouchableOpacity>
                         )
@@ -28,10 +31,14 @@ export default function Question({questions, nextRound}:any){
                         <Text style={styles.btnText}>Weiter</Text>
                     </TouchableOpacity> : undefined}
                 </View>
+                <Text style={styles.points}>Punktzahl: {points}</Text>
             </View>
         );
     } else {
-        return <View style={styles.container}><Text>Bin am laden...</Text></View>
+        return (
+            <View style={styles.container}>
+                <ActivityIndicator size="large" color="#861388" />
+            </View>)
     }
 }
 
@@ -44,6 +51,10 @@ const styles = StyleSheet.create({
         fontSize: 30,
         color: "#861388",
         marginBottom: 10
+    },
+    points: {
+        color: "#861388",
+        fontSize: 20
     },
     answerContainer: {
         flex: 1,

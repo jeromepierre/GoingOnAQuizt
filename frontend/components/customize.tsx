@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
-// import MultiSelect from 'react-native-multiple-select';
+import SelectBox from 'react-native-multi-selectbox-typescript'
+import { xorBy } from 'lodash'
 
 export default function Customize({route, navigation}: any){
     const {modus} = route.params;
@@ -8,9 +9,9 @@ export default function Customize({route, navigation}: any){
     const [difficulties, setDifficulties] = useState([]);
 
     const choseableDifficulties = [
-        {label: "easy", value: "easy"},
-        {label: "medium", value: "medium"},
-        {label: "hard", value: "hard"},
+        {item: "easy", id: "easy"},
+        {item: "medium", id: "medium"},
+        {item: "hard", id: "hard"},
     ]
 
     const handleSend = () => {        
@@ -28,16 +29,24 @@ export default function Customize({route, navigation}: any){
                     keyboardType = "numeric"
                 />    
             </View>
-            {modus === "Custom" ?
-                <View style={styles.inputContainer}>
-
-                </View>
-                : null}
+                <SelectBox
+                    label="Wähle eine oder mehrere Schwierigkeiten"
+                    options={choseableDifficulties}
+                    selectedValues={difficulties}
+                    onMultiSelect={onMultiChange()}
+                    onTapClose={onMultiChange()}
+                    isMulti
+                />
             <TouchableOpacity style={styles.btn} onPress={handleSend}>
                 <Text style={styles.btnText}>Send</Text>
             </TouchableOpacity> 
         </View>
     )
+
+    function onMultiChange() {
+        return (item:any) => setDifficulties(xorBy(difficulties, [item], 'id'))
+      }
+    
 }
 
 const styles = StyleSheet.create({

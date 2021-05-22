@@ -6,6 +6,7 @@ import { xorBy } from 'lodash';
 export default function Customize({route, navigation}: any){
     const [questionCount, setQuestionCount] = useState(10);
     const [difficulties, setDifficulties] = useState<any>([]);
+    const [categories, setCategories] = useState<any>([]);
 
     const choseableDifficulties = [
         {item: "easy", id: "easy"},
@@ -14,7 +15,7 @@ export default function Customize({route, navigation}: any){
     ]
 
     const handleSend = () => {        
-        navigation.navigate("Custom", {questionCount: questionCount, difficulties: difficulties});
+        navigation.navigate("Custom", {questionCount: questionCount, difficulties: difficulties, categories: categories});
     }
 
     return(

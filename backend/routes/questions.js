@@ -4,6 +4,7 @@ const categoriesIdLess = require("../models/categories");
 var configureRound = require("../models/quizzRound.js");
 var createQuestions = require("../models/gameSession");
 const asyncMiddleware = require('../utils/asyncMiddleware');
+const getStringArray = require('../utils/getStringArray');
 let router = express.Router();
 
 /* GET users listing. */
@@ -14,9 +15,11 @@ router.get('/', function(req, res, next) {
 router.post('/', asyncMiddleware.asyncMiddleware(async (req, res, next) => {
     let round;
     console.log("req: ", req.body);
+    console.log("difficulties: ", req.body.difficulties);
+    console.log("numberOfQuestions: ", req.body.numberOfQuestions);
     round = {
-        "categories": req.body.categories ? req.body.categories : categoriesIdLess.categoriesIdLess,
-        "difficulties": req.body.difficulties ? req.body.difficulties : ["hard", "medium", "easy"],
+        "categories": req.body.categories && getStringArray.getStringArray(req.body.categories) > 0 ? getStringArray.getStringArray(req.body.categories) : categoriesIdLess.categoriesIdLess,
+        "difficulties": req.body.difficulties && getStringArray.getStringArray(req.body.difficulties).length > 0 ? getStringArray.getStringArray(req.body.difficulties) : ["hard", "medium", "easy"],
         "numberOfQuestions": req.body.numberOfQuestions ? req.body.numberOfQuestions : "time",
         "modus": req.body.modus
     };

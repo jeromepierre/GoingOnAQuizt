@@ -4,7 +4,7 @@ export const postQuestions = (numberOfQuestions: number, difficulties?: Array<st
     return fetch(`http://${IP}:3000/questions`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({numberOfQuestions: numberOfQuestions})
+            body: JSON.stringify({numberOfQuestions: numberOfQuestions, difficulties: difficulties, categories: categories})
         }
     ).then((response) => {
         return response.json();

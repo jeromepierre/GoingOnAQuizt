@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f793874a-ef43-4ac3-bfe5-c7c3f87b2333" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../backend/utils/JsonResponse.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/utils/shuffle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/models/gameSession.js" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/models/gameSession.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/customize.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/customize.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/ducks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/ducks.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/question.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/question.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,16 +85,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/components/Classic.tsx</url>
-          <line>84</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/components/Classic.tsx</url>
-          <line>83</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/components/question.tsx</url>
           <line>5</line>

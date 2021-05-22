@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
-import SelectBox from 'react-native-multi-selectbox-typescript'
-import { xorBy } from 'lodash'
+import SelectBox from 'react-native-multi-selectbox-typescript';
+import { xorBy } from 'lodash';
 
 export default function Customize({route, navigation}: any){
-    const {modus} = route.params;
     const [questionCount, setQuestionCount] = useState(10);
-    const [difficulties, setDifficulties] = useState([]);
+    const [difficulties, setDifficulties] = useState<any>([]);
 
     const choseableDifficulties = [
         {item: "easy", id: "easy"},
@@ -15,7 +14,7 @@ export default function Customize({route, navigation}: any){
     ]
 
     const handleSend = () => {        
-        navigation.navigate(modus, {questionCount: questionCount});
+        navigation.navigate("Custom", {questionCount: questionCount, difficulties: difficulties});
     }
 
     return(

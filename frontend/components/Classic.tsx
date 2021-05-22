@@ -31,7 +31,7 @@ export default function ClassicModus({route, navigation}: any) {
 
   useEffect(() => {
       // fetchQuestion();
-      postQuestions(route.params.questionCount).then((res:any) => {
+      postQuestions(10).then((res:any) => {
           setQuestions(res);
       })
   }, []);
@@ -53,7 +53,14 @@ export default function ClassicModus({route, navigation}: any) {
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: "#EEABC4" }}>
-        {error ? <Text>Errorrrrr!</Text> : !isFinished ? <Question questions={questions[questionIndex]} nextRound={nextRound} handleQuestions={handleQuestions} points={points}></Question> : <Text>Total Punktzahl: {points}</Text>}
+        {error ? <Text>Errorrrrr!</Text> : !isFinished ? 
+        <Question 
+          questions={questions[questionIndex]} 
+          nextRound={nextRound} 
+          handleQuestions={handleQuestions} 
+          points={points}>            
+        </Question> : 
+        <Text>Total Punktzahl: {points}</Text>}
       </View>
     );
   }

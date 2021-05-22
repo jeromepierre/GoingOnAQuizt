@@ -20,7 +20,7 @@ router.post('/', asyncMiddleware.asyncMiddleware(async (req, res, next) => {
     round = {
         "categories": req.body.categories && getStringArray.getStringArray(req.body.categories) > 0 ? getStringArray.getStringArray(req.body.categories) : categoriesIdLess.categoriesIdLess,
         "difficulties": req.body.difficulties && getStringArray.getStringArray(req.body.difficulties).length > 0 ? getStringArray.getStringArray(req.body.difficulties) : ["hard", "medium", "easy"],
-        "numberOfQuestions": req.body.numberOfQuestions ? req.body.numberOfQuestions : "time",
+        "numberOfQuestions": req.body.numberOfQuestions ? req.body.numberOfQuestions : 10,
         "modus": req.body.modus
     };
     let categoriesNumber = [];

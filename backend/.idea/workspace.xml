@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab457d93-ee93-4550-801c-d1d8d7d9354c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/utils/getStringArray.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/components/Custom.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/questions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/components/customize.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/customize.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/components/ducks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/ducks.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +61,7 @@
       <workItem from="1621540894795" duration="757000" />
       <workItem from="1621544062290" duration="2647000" />
       <workItem from="1621692779846" duration="533000" />
-      <workItem from="1621693321073" duration="373000" />
+      <workItem from="1621693321073" duration="457000" />
     </task>
     <servers />
   </component>

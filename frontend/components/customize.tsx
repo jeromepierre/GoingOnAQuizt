@@ -1,12 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import SelectBox from 'react-native-multi-selectbox-typescript';
 import { xorBy } from 'lodash';
+import {getCategories} from "./ducks";
+
 
 export default function Customize({route, navigation}: any){
     const [questionCount, setQuestionCount] = useState(10);
     const [difficulties, setDifficulties] = useState<any>([]);
     const [categories, setCategories] = useState<any>([]);
+    const [selectedCategories, setSelectedCategories] = useState<any>([]);
 
     const choseableDifficulties = [
         {item: "easy", id: "easy"},
@@ -14,8 +17,14 @@ export default function Customize({route, navigation}: any){
         {item: "hard", id: "hard"},
     ]
 
+    useEffect(() => {
+        getCategories().then((res:any) => {
+            setCategories(res);
+        })
+    }, [])
+
     const handleSend = () => {        
-        navigation.navigate("Custom", {questionCount: questionCount, difficulties: difficulties, categories: categories});
+        navigation.navigate("Custom", {questionCount: questionCount, difficulties: difficulties, categories: selectedCategories});
     }
 
     return(
@@ -33,8 +42,16 @@ export default function Customize({route, navigation}: any){
                     label="Wähle eine oder mehrere Schwierigkeiten"
                     options={choseableDifficulties}
                     selectedValues={difficulties}
-                    onMultiSelect={onMultiChange()}
-                    onTapClose={onMultiChange()}
+                    onMultiSelect={onDifficultyChange()}
+                    onTapClose={onDifficultyChange()}
+                    isMulti
+                />
+                 <SelectBox
+                    label="Wähle eine oder mehrere Schwierigkeiten"
+                    options={categories}
+                    selectedValues={selectedCategories}
+                    onMultiSelect={onCategoryChange()}
+                    onTapClose={onCategoryChange()}
                     isMulti
                 />
             <TouchableOpacity style={styles.btn} onPress={handleSend}>
@@ -43,8 +60,12 @@ export default function Customize({route, navigation}: any){
         </View>
     )
 
-    function onMultiChange() {
+    function onDifficultyChange() {
         return (item:any) => setDifficulties(xorBy(difficulties, [item], 'id'))
+      }
+    
+    function onCategoryChange() {
+        return (item:any) => setSelectedCategories(xorBy(selectedCategories, [item], 'id'))
       }
     
 }

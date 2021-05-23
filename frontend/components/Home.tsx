@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 function HomeScreen({ navigation }: any) {
     return (
@@ -11,7 +11,7 @@ function HomeScreen({ navigation }: any) {
         <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Customize")}>
             <Text style={styles.btnText}>Custom Modus</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Classic")}>
+        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("CustomizeTime")}>
             <Text style={styles.btnText}>Time challenge Modus</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Classic")}>

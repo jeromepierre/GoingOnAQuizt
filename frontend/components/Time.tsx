@@ -4,6 +4,7 @@ import Question from "./question";
 import axios from "axios";
 import { TQuestion } from "../types/Question";
 import {postQuestions} from "./ducks";
+import useCountDown from "react-countdown-hook";
 
 export default function TimeModus({route, navigation}: any) {
   const [isClicked, setIsClicked] = useState(false);
@@ -14,6 +15,7 @@ export default function TimeModus({route, navigation}: any) {
   const [points, setPoints] = useState(0);
   const [time, setTime] = useState(parseInt(route.params.time));
   const [isStart, setIsStart] = useState(false);
+  const [timeLeft, actions] = useCountDown(route.params.time, 1000);
 
   const handleQuestions = (difficulty: string) => {
     switch(difficulty){
@@ -35,10 +37,11 @@ export default function TimeModus({route, navigation}: any) {
       // fetchQuestion();
       postQuestions(route.params.questionCount, route.params.difficulties, route.params.categories).then((res:any) => {
           setQuestions(res);
+          actions.start(route.params.time * 1000);
           setIsStart(true);
       })
   }, []);
-
+/*
   useEffect(() => {
     const interval = setInterval(() => {
       if(isStart && time >= 0){
@@ -49,7 +52,14 @@ export default function TimeModus({route, navigation}: any) {
       }
     }, 1000);
     return () => clearInterval(interval);
-  });
+  });*/
+
+  useEffect(() => {
+      if(timeLeft <= 0 && isStart){
+          console.log("finished")
+          setIsFinished(true);
+      }
+  },[timeLeft]);
 
 
   async function fetchQuestion(){
@@ -64,13 +74,14 @@ export default function TimeModus({route, navigation}: any) {
         setQuestionIndex(questionIndex + 1);
       else
         setIsFinished(true);
+        console.log("finished");
   }
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: "#EEABC4" }}>
-        {error ? <Text>Errorrrrr!</Text> : !isFinished ? 
+        {error ? <Text>Errorrrrr!</Text> : !isFinished ?
         <View style={{flex: 1}}>
-            {isStart ? <Text style={{fontSize: 20}}>Verbleibende Zeit: {time} Sekunden</Text> : undefined}
+            {isStart ? <Text style={{fontSize: 20}}>Verbleibende Zeit: {timeLeft/1000} Sekunden</Text> : undefined}
         <Question 
           questions={questions[questionIndex]} 
           nextRound={nextRound} 

@@ -18,9 +18,11 @@ Falls Android Studio installiert ist, kann die Applikation darauf simuliert werd
 
 ## Anpassungen Frontend
 Damit das Frontend mit dem Backend kommunizieren kann, muss im Frontend folgende Anpassung gemacht werden:
-unter```bash
+unter
+```bash
     frontend/src/components/ducks.ts 
 ``` 
+
 ```javascript
 const IP: string = "172.24.112.1"; 
 ```

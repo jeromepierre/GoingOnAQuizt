@@ -30,7 +30,11 @@ durch die entsprechende lokale IP-Adresse ersetzt werden.
 
 ## Starten im Browser
 Die Startseite, die durch Expo aufgerufen wird, dient als Navigation.
-Mit dem Button Run in web browser, kann die Applikation ohne Android Studio gestartet werden.
+Mit dem Button 
+```bash
+Run in web browser
+```
+kann die Applikation ohne Android Studio gestartet werden.
 
 ## Simulation mit Android Studio
 Für das Simulieren auf dem Smartphone kann die Software "Android Studio" verwendet werden.
@@ -39,7 +43,11 @@ Nach dem Start:
 - AVD Manager
 - (optional) Create Virtual Device
 - Wunschgerät mit Android 11 starten
-- Im Expo Browser "Run on Android device/emulator" starten
+- Im Expo Browser 
+ ```bash
+ Run on Android device/emulator
+ ```
+  starten
 
 ## Problembehandlung
 Teilweise sind die Pakete nicht richtig konfiguriert.

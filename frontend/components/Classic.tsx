@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import Question from "./question";
 import axios from "axios";
 import { TQuestion } from "../types/Question";
-import {postQuestions} from "./ducks";
+import {postHighscore, postQuestions} from "./ducks";
 
 export default function ClassicModus({route, navigation}: any) {
   const [isClicked, setIsClicked] = useState(false);
@@ -12,6 +12,7 @@ export default function ClassicModus({route, navigation}: any) {
   const [questions, setQuestions] = useState<Array<TQuestion>>([]);
   const [error, setError] = useState(false);
   const [points, setPoints] = useState(0);
+  const [username, setUsername] = useState("");
 
   const handleQuestions = (difficulty: string) => {
     switch(difficulty){
@@ -51,6 +52,11 @@ export default function ClassicModus({route, navigation}: any) {
         setIsFinished(true);
   }
 
+  const handleHighscore = () => {
+    postHighscore(username, points.toString(), new Date().toLocaleDateString("de-DE")).then((res) => {console.log(res)});
+    navigation.navigate("Leaderboard");
+  }
+
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: "#EEABC4" }}>
         {error ? <Text>Errorrrrr!</Text> : !isFinished ? 
@@ -60,8 +66,54 @@ export default function ClassicModus({route, navigation}: any) {
           handleQuestions={handleQuestions} 
           points={points}>            
         </Question> : 
-        <Text>Total Punktzahl: {points}</Text>}
+        <View>
+          <Text>Total Punktzahl: {points}</Text>
+          <View style={styles.inputContainer}>
+                <Text>Username: </Text>
+                <TextInput                
+                    style={styles.input}
+                    onChangeText={(text :any) => setUsername(text)}
+                    value={username}
+                />    
+            </View>
+          <TouchableOpacity style={styles.btn} onPress={() => handleHighscore()}>
+              <Text style={styles.btnText}>Punktzahl zum Leaderboard hinzufügen</Text>
+          </TouchableOpacity>
+        </View>
+        }
       </View>
     );
   }
 
+  const styles = StyleSheet.create({
+    inputContainer:{
+      flex: 1,
+      flexDirection: "row",
+      justifyContent: 'flex-start',
+      alignItems: "center",
+  },
+  input: {
+  height: 40,
+  margin: 12,
+  borderWidth: 1,
+  backgroundColor: "#E15A97",
+  width: 100
+},
+    title:{
+        fontSize: 40,
+        fontWeight: 'bold',
+        color: "#861388"
+    },
+    btn:{
+        height:50,
+        backgroundColor:"#E15A97",
+        alignItems:'center',
+        justifyContent:'center', 
+        paddingHorizontal: 20,
+        paddingVertical: 30
+    },
+    btnText:{
+        color: "#4B2840",
+        fontSize: 30
+    }
+})

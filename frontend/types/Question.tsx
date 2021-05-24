@@ -7,3 +7,10 @@ export type TAnswer = {
     answer: string,
     isCorrect: boolean,
 }
+
+export type THighscore = {
+    _id: string,
+    username: string,
+    score: string,
+    date: string
+}

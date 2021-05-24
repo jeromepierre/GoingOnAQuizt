@@ -1,5 +1,5 @@
-//const IP: string = "172.24.112.1";
-const IP: string = "192.168.0.220";
+const IP: string = "172.24.112.1";
+//const IP: string = "192.168.0.220";
 
 export const postQuestions = (numberOfQuestions: number, difficulties?: Array<string>, categories?: Array<string>) => {
     return fetch(`http://${IP}:3000/questions`, {

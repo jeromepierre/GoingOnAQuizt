@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -9,6 +8,7 @@ import Customize from "./components/customize"
 import CustomModus from "./components/Custom";
 import CustomizeTime from "./components/CustomizeTime";
 import TimeModus from './components/Time';
+import LeaderBoard from './components/Leaderboard';
 
 
 const Stack = createStackNavigator();
@@ -24,6 +24,7 @@ function App() {
         <Stack.Screen name="CustomizeTime" component={CustomizeTime} />
         <Stack.Screen name="Custom" component={CustomModus} />
         <Stack.Screen name="Time" component={TimeModus} />
+        <Stack.Screen name="Leaderboard" component={LeaderBoard} />
       </Stack.Navigator>
     </NavigationContainer>
     </SafeAreaProvider>

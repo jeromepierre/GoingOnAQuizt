@@ -43,11 +43,10 @@ Nach dem Start:
 - AVD Manager
 - (optional) Create Virtual Device
 - Wunschgerät mit Android 11 starten
-- Im Expo Browser 
+- Im Expo Browser starten
  ```bash
  Run on Android device/emulator
  ```
-  starten
 
 ## Problembehandlung
 Teilweise sind die Pakete nicht richtig konfiguriert.

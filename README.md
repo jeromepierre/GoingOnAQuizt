@@ -33,11 +33,11 @@ Mit dem Button Run in web browser, kann die Applikation ohne Android Studio gest
 ## Simulation mit Android Studio
 Für das Simulieren auf dem Smartphone kann die Software "Android Studio" verwendet werden.
 Nach dem Start:
-    - Configure
-    - AVD Manager
-    - (optional) Create Virtual Device
-    - Wunschgerät mit Android 11 starten
-    - Im Expo Browser "Run on Android device/emulator" starten
+- Configure
+- AVD Manager
+- (optional) Create Virtual Device
+- Wunschgerät mit Android 11 starten
+- Im Expo Browser "Run on Android device/emulator" starten
 
 ## Problembehandlung
 Teilweise sind die Pakete nicht richtig konfiguriert.

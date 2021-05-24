@@ -54,7 +54,7 @@ Löschen der Node Modules, neu Installieren mit
 ```bash
     npm install
 ```
-Sonst zusätzlich 
+Sonst zusätzlich Pakete reparieren
 ```bash
     npm audit fix
 ```

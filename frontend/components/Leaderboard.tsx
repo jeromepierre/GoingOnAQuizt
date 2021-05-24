@@ -27,7 +27,6 @@ export default function LeaderBoard(){
     }, [])
 
     const handleLeaderboard = (leaderboardParam: ELeaderboard) => {
-        console.log(leaderboardParam, ELeaderboard.alltime);
         switch(leaderboardParam){
             case ELeaderboard.alltime:
                 setDisplayedLeaderboard(leaderboard);

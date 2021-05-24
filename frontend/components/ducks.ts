@@ -1,5 +1,5 @@
-const IP: string = "172.24.112.1";
-//const IP: string = "192.168.0.220";
+//const IP: string = "172.24.112.1";
+const IP: string = "192.168.0.220";
 
 export const postQuestions = (numberOfQuestions: number, difficulties?: Array<string>, categories?: Array<string>) => {
     return fetch(`http://${IP}:3000/questions`, {
@@ -32,7 +32,27 @@ export const getHighscores = () => {
     });
 }
 
-export const postHighscore = (username: string, score: string, date: string) => {
+export const getDailyHighscores = () => {
+    return fetch(`http://${IP}:3000/highscore/daily`, {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+        }
+    ).then((response) => {
+        return response.json();
+    });
+}
+
+export const getWeeklyHighscores = () => {
+    return fetch(`http://${IP}:3000/highscore/weekly`, {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+        }
+    ).then((response) => {
+        return response.json();
+    });
+}
+
+export const postHighscore = (username: string, score: number, date: Date) => {
     return fetch(`http://${IP}:3000/highscore`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},

@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { View, Text } from 'react-native';
 import Question from "./question";
-import axios from "axios";
 import { TQuestion } from "../types/Question";
 import {postQuestions} from "./ducks";
 import useCountDown from "react-countdown-hook";
@@ -13,7 +12,6 @@ export default function TimeModus({route, navigation}: any) {
   const [questions, setQuestions] = useState<Array<TQuestion>>([]);
   const [error, setError] = useState(false);
   const [points, setPoints] = useState(0);
-  const [time, setTime] = useState(parseInt(route.params.time));
   const [isStart, setIsStart] = useState(false);
   const [timeLeft, actions] = useCountDown(route.params.time, 1000);
 
@@ -41,18 +39,6 @@ export default function TimeModus({route, navigation}: any) {
           setIsStart(true);
       })
   }, []);
-/*
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if(isStart && time >= 0){
-          setTime(time - 1);
-      }
-      if(time <= 0){
-          setIsFinished(true);
-      }
-    }, 1000);
-    return () => clearInterval(interval);
-  });*/
 
   useEffect(() => {
       if(timeLeft <= 0 && isStart){
@@ -60,14 +46,6 @@ export default function TimeModus({route, navigation}: any) {
           setIsFinished(true);
       }
   },[timeLeft]);
-
-
-  async function fetchQuestion(){
-    axios.post('http://192.168.0.220:3000/questions', {numberOfQuestions: route.params.questionCount}).then((response: any) => {
-        console.log("resi: ", response.data);
-        setQuestions(response.data);
-    });
-  }
 
     const nextRound = () => {
       if(questionIndex < questions.length - 1)

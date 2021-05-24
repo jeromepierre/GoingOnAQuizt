@@ -20,7 +20,6 @@ async function createQuestions(round, categories) {
         });
     }
   }
-  console.log(questions);
   let frontEndQuestions = createJsonResponse.createJsonResponse(questions);
   return frontEndQuestions;
 }

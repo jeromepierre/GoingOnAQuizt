@@ -5,10 +5,10 @@ const HighscoreSchema = new mongoose.Schema({
             type: String,
         },
         score: {
-            type: String,
+            type: Number,
         },
         date: {
-          type: String,
+          type: Date,
         }
     }
 );

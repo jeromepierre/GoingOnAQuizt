@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { View, Text } from 'react-native';
 import Question from "./question";
-import axios from "axios";
 import { TQuestion } from "../types/Question";
 import {postQuestions} from "./ducks";
 
@@ -30,19 +29,10 @@ export default function CustomModus({route, navigation}: any) {
 }
 
   useEffect(() => {
-      // fetchQuestion();
       postQuestions(route.params.questionCount, route.params.difficulties, route.params.categories).then((res:any) => {
           setQuestions(res);
       })
   }, []);
-
-
-  async function fetchQuestion(){
-    axios.post('http://192.168.0.220:3000/questions', {numberOfQuestions: route.params.questionCount}).then((response: any) => {
-        console.log("resi: ", response.data);
-        setQuestions(response.data);
-    });
-  }
 
     const nextRound = () => {
       if(questionIndex < questions.length - 1)

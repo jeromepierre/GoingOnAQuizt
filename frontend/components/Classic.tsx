@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import Question from "./question";
-import axios from "axios";
 import { TQuestion } from "../types/Question";
 import {postHighscore, postQuestions} from "./ducks";
 
@@ -31,19 +30,10 @@ export default function ClassicModus({route, navigation}: any) {
 }
 
   useEffect(() => {
-      // fetchQuestion();
       postQuestions(10).then((res:any) => {
           setQuestions(res);
       })
   }, []);
-
-
-  async function fetchQuestion(){
-    axios.post('http://192.168.0.220:3000/questions', {numberOfQuestions: route.params.questionCount}).then((response: any) => {
-        console.log("resi: ", response.data);
-        setQuestions(response.data);
-    });
-  }
 
     const nextRound = () => {
       if(questionIndex < questions.length - 1)
@@ -53,7 +43,7 @@ export default function ClassicModus({route, navigation}: any) {
   }
 
   const handleHighscore = () => {
-    postHighscore(username, points.toString(), new Date().toLocaleDateString("de-DE")).then((res) => {console.log(res)});
+    postHighscore(username, points, new Date()).then((res) => {console.log(res)});
     navigation.navigate("Leaderboard");
   }
 

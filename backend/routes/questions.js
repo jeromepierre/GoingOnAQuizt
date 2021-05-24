@@ -16,9 +16,6 @@ router.post(
   "/",
   asyncMiddleware.asyncMiddleware(async (req, res, next) => {
     let round;
-    console.log("req: ", req.body);
-    console.log("difficulties: ", req.body.difficulties);
-    console.log("numberOfQuestions: ", req.body.numberOfQuestions);
     round = {
       categories:
         req.body.categories &&

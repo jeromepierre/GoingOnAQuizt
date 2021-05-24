@@ -42,7 +42,6 @@ export default function TimeModus({route, navigation}: any) {
 
   useEffect(() => {
       if(timeLeft <= 0 && isStart){
-          console.log("finished")
           setIsFinished(true);
       }
   },[timeLeft]);
@@ -52,7 +51,6 @@ export default function TimeModus({route, navigation}: any) {
         setQuestionIndex(questionIndex + 1);
       else
         setIsFinished(true);
-        console.log("finished");
   }
 
     return (

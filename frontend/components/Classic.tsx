@@ -43,7 +43,7 @@ export default function ClassicModus({route, navigation}: any) {
   }
 
   const handleHighscore = () => {
-    postHighscore(username, points, new Date()).then((res) => {console.log(res)});
+    postHighscore(username, points, new Date());
     navigation.navigate("Leaderboard");
   }
 
